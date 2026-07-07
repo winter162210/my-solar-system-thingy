@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Orbiting Solar System</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #000814;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin: 18px 0 4px;
+      color: #bdefff;
+    }
+
+    p {
+      margin: 5px;
+      color: #bdefff;
+    }
+
+    .space {
+      width: min(92vw, 760px);
+      aspect-ratio: 1;
+      margin: 12px auto;
+      position: relative;
+    }
+
+    .sun {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: #ffd84d;
+      box-shadow: 0 0 50px #ffb300;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+    }
+
+    .orbit {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border: 1px solid rgba(180, 220, 255, 0.22);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: orbit var(--time) linear infinite;
+    }
+
+    .planet-holder {
+      position: absolute;
+      left: 50%;
+      top: calc(var(--size) / -2);
+      transform: translateX(-50%);
+      animation: stay-upright var(--time) linear infinite reverse;
+    }
+
+    .planet {
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.55);
+    }
+
+    .label {
+      font-size: 11px;
+      white-space: nowrap;
+      margin-top: 4px;
+      color: white;
+    }
+
+    .saturn::after {
+      content: "";
+      position: absolute;
+      width: 54px;
+      height: 15px;
+      left: -12px;
+      top: 7px;
+      border: 3px solid #f4dda3;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+    }
+
+    .star {
+      position: absolute;
+      color: white;
+      animation: twinkle 1.6s infinite alternate;
+    }
+
+    @keyframes orbit {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes stay-upright {
+      from { transform: translateX(-50%) rotate(0deg); }
+      to { transform: translateX(-50%) rotate(360deg); }
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.25; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1.3); }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>☀️ MY ORBITING SOLAR SYSTEM 🪐</h1>
+  <p>Neptune is my favorite blue storm planet! 💙⛈️</p>
+
+  <div class="space">
+    <div class="star" style="left:8%; top:12%;">✦</div>
+    <div class="star" style="left:87%; top:18%;">✦</div>
+    <div class="star" style="left:10%; top:80%;">✦</div>
+    <div class="star" style="left:83%; top:84%;">✦</div>
+    <div class="star" style="left:48%; top:8%;">✦</div>
+
+    <div class="sun"></div>
+
+    <div class="orbit" style="width:16%; height:16%; --time:4s; --size:9px;">
+      <div class="planet-holder">
+        <div class="planet" style="background:#aaa;"></div>
+        <div class="label">Mercury</div>
+      </div>
+    </div>
+
+    <div class="orbit" style="width:25%; height:25%; --time:7s; --size:14px;">
+      <div class="planet-holder">
+        <div class="planet" style="background:#e3a85b;"></div>
+        <div class="label">Venus</div>
+      </div>
+    </div>
+
+    <div class="orbit" style="width:35%; height:35%; --time:10s; --size:16px;">
+      <div class="planet-holder">
+        <div class="planet" style="background:#3d9bff;"></div>
+        <div class="label">Earth</div>
+      </div>
+    </div>
+
+    <div class="orbit" style="width:45%; height:45%; --time:15s; --size:12px;">
+      <div class="planet-holder">
+        <div class="planet" style="background:#db5a3b;"></div>
+        <div class="label">Mars</div>
+      </div>
+    </div>
+
+    <div class="orbit" style="width:57%; height:57%; --time:25s; --size:34px;">
+      <div class="planet-holder">
+        <div class="planet" style="background:#d9a16d;"></div>
+        <div class="label">Jupiter</div>
+      </div>
+    </div>
+
+    <div class="orbit" style="width:68%; height:68%; --time:34s; --size:28px;">
+      <div class="planet-holder">
+        <div class="planet saturn" style="background:#eed28e; position:relative;"></div>
+        <div class="label">Saturn</div>
+      </div>
+    </div>
+
+    <div class="orbit" style="width:78%; height:78%; --time:45s; --size:21px;">
+      <div class="planet-holder">
+        <div class="planet" style="background:#77e6f2;"></div>
+        <div class="label">Uranus</div>
+      </div>
+    </div>
+
+    <div class="orbit" style="width:88%; height:88%; --time:60s; --size:22px;">
+      <div class="planet-holder">
+        <div class="planet" style="background:#2774db; box-shadow:0 0 20px #4dbdff;"></div>
+        <div class="label">Neptune 💙</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
